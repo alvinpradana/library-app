@@ -8,7 +8,7 @@ const title = localStorage.getItem("img-title")
 const image = localStorage.getItem("image")
 
 titleBook.innerText = title
-imgBrand.setAttribute("src", image)
+imgBrand.style.backgroundImage = `url('.${image}')`
 heroImg.style.backgroundImage = `url('.${image}')`
 titleDelete.innerText = title
 titleEdit.setAttribute("value", title)

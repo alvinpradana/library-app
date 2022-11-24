@@ -272,8 +272,13 @@ button.logout:hover {
     transform: translate(0, -40%);
 }
 
-.hero-brand img {
+.hero-brand #imgBrand {
     min-height: 15rem;
+    min-width: 11rem;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url('../assets/img/card/card-art.png');
 }
 
 .card-img-top {
