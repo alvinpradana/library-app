@@ -283,6 +283,10 @@ button.logout:hover {
 
 .card-img-top {
     height: 11rem !important;
+    background-image: url('../assets/img/card/card-art.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 .list-all-books .card {
