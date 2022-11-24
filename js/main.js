@@ -1,10 +1,10 @@
 function openNavigation() {
-    document.getElementById("sideNavigation").style.width = "250px"
+    document.getElementById("sideNavigation").style.left = "250px"
     document.getElementById("wrapper").style.marginLeft = "250px"
 }
 
 function closeNavigation() {
-    document.getElementById("sideNavigation").style.width = "0"
+    document.getElementById("sideNavigation").style.left = "-250px"
     document.getElementById("wrapper").style.marginLeft = "0"
 }
 
