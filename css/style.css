@@ -272,6 +272,10 @@ button.logout:hover {
     transform: translate(0, -40%);
 }
 
+.hero-brand img {
+    min-height: 15rem;
+}
+
 .card-img-top {
     height: 11rem !important;
 }

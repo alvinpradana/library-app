@@ -29,11 +29,11 @@ function renderCard(books) {
     var card = ''
     books.map(book => {
         card += `
-            <a href="/detail-book.html" class="text-decoration-none mb-4">
+            <a href="/detail-book.html" id="logCard-${book.id}" class="text-decoration-none mb-4" data-id="${book.id}">
                 <div class="card rounded-4 overflow-hidden shadow me-4" style="width: 18rem;">
-                    <img src="${book.image}" class="card-img-top" alt="Card cover">
+                    <img src="${book.image}" id="imgCard-${book.id}" class="card-img-top" alt="Card cover">
                     <div class="card-body">
-                        <h5 class="text-center font-medium">${book.title}</h5>
+                        <h5 id="titleCard-${book.id}" data-title="${book.title}" class="text-center font-medium">${book.title}</h5>
                         <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, reprehenderit.</small>
                     </div>
                 </div>
@@ -41,6 +41,24 @@ function renderCard(books) {
         `
         document.getElementById("cardWrapper").innerHTML = card
     })
+
+    for (let i=1; i<=books.length; i++) {
+        const event = document.getElementById(`logCard-${i}`)
+        const id = document.getElementById(`logCard-${i}`).getAttribute("data-id")
+        const image = document.getElementById(`imgCard-${i}`).getAttribute("src")
+        const title = document.getElementById(`titleCard-${i}`).getAttribute("data-title")
+
+        event.addEventListener("click", function(e) {
+            const baseUrl = window.location.origin
+            window.location.href = baseUrl + "/detail-book.html"
+
+            localStorage.setItem("img-id", id)
+            localStorage.setItem("img-title", title)
+            localStorage.setItem("image", image)
+            
+            e.preventDefault()
+        })
+    }
 }
 
 renderCard(books)
