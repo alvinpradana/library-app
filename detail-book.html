@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.css" rel="stylesheet">
+    <title>Library</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <header>
+            <nav class="navbar navbar-expand-lg bg-none">
+                <div class="container-fluid px-4">
+                    <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
+                        <ul class="navbar-nav mb-2 mb-lg-0">
+                            <li class="nav-item my-auto">
+                                <button onclick="history.back()" class="btn bg-white rounded-circle shadow p-3">
+                                    <i data-feather="arrow-left"></i>
+                                </button>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav mb-2 mb-lg-0">
+                            <li class="nav-item my-auto">
+                                <a href="#" class="nav-link font-medium text-white" data-bs-toggle="modal" data-bs-target="#modalEditBook">Edit</a>
+                            </li>
+                            <li class="nav-item my-auto">
+                                <a href="#" class="nav-link font-medium text-white" data-bs-toggle="modal" data-bs-target="#modalDeleteBook">Delete</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <!-- Modal Edit -->
+            <div class="modal fade" id="modalEditBook" tabindex="-1" aria-labelledby="modalEditBook" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content p-4">
+                        <div class="modal-header border-0">
+                            <h1 class="modal-title font-medium fs-4" id="modalEditBook">Edit data</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row mb-3">
+                                <div class="col-md-2 col-lg-2 col-form-label font-medium">
+                                    Url image
+                                </div>
+                                <div class="col-md-10 col-lg-10">
+                                    <input type="text" name="url" id="url" class="form-control py-2" placeholder="Url image ..." value="http://gambar.com/dilan.jpg">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-2 col-lg-2 col-form-label font-medium">
+                                    Title
+                                </div>
+                                <div class="col-md-10 col-lg-10">
+                                    <input type="text" name="title" id="title" class="form-control py-2" placeholder="Title ..." value="Dilan 1990">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-2 col-lg-2 col-form-label font-medium">
+                                    Description
+                                </div>
+                                <div class="col-md-10 col-lg-10">
+                                    <textarea class="form-control" name="description" id="description" rows="6" placeholder="Description ...">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac diam eget est rutrum ultrices. Donec laoreet enim a massa dapibus, cursus egestas dui pulvinar.</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer border-0">
+                            <button type="button" class="btn background-warning text-white py-2 px-4">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal delete -->
+            <div class="modal fade" id="modalDeleteBook" tabindex="-1" aria-labelledby="modalDeleteBook" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-md">
+                    <div class="modal-content p-2">
+                        <div class="modal-header border-0">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body pb-5">
+                            <div class="d-flex flex-column w-100 align-items-center justify-content-center">
+                                <div class="mb-3"><i data-feather="check-circle" stroke="#99D815" width="80" height="80"></i></div>
+                                <p class="text-center fs-5 mb-0">Data <span class="font-medium">DILAN 1990</span> berhasil dihapus.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section id="heroImage" style="height: 42vh;">
+                <div class="hero-image"></div>
+                <div class="container d-flex justify-content-end">
+                    <div class="hero-brand rounded-3 overflow-hidden shadow">
+                        <img src="./assets/img/hero-brand.png" width="180" class="img-fluid" alt="Hero brand">
+                    </div>
+                </div>
+            </section>
+            <div class="container">
+                <section id="list-book">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-8">
+                            <div class="">
+                                <div class="d-flex align-items-center justify-content-between py-3">
+                                    <div class="d-block">
+                                        <div class="badge py-2 px-4 background-warning rounded-pill">Novel</div>
+                                        <div class="font-bold fs-3 py-1">DILAN 1990</div>
+                                        <p class="font-medium">30 Juni 2019</p>
+                                    </div>
+                                    <div class="font-bold fs-4 color-success">Available</div>
+                                </div>
+                                <div class="pt-3">
+                                    <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam odit non earum autem accusantium, nisi magni est velit at rerum excepturi illo enim reiciendis officiis cumque! Dolorum iusto neque voluptates ratione assumenda temporibus voluptatum sapiente nisi laudantium impedit! Vitae, esse corrupti! Quam, nihil sapiente fugiat perspiciatis inventore quisquam iure repellat.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="d-flex justify-content-end h-100 align-items-end">
+                                <button class="btn background-warning shadow text-white font-medium fs-5 py-2 px-5">Borrow</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.pkgd.js"></script>
+    <script>
+        feather.replace()
+    </script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.css" rel="stylesheet">
+    <title>Library</title>
+</head>
+
+<body>
+    <div id="sideNavigation" class="side-navigation shadow">
+        <div class="d-flex flex-column justify-content-center align-items-center mb-5">
+            <div class="rouded-pill account mb-2"></div>
+            <div class="font-medium fs-5 mb-2">Niki Zefanya</div>
+            <a href="/index.html" class="p-0">
+                <button class="btn btn-outline-dark logout font-medium color-primary fs-6"><i data-feather="arrow-right-circle" width="18px" class="color-primary me-1 my-auto"></i>Logout</button>
+            </a>
+        </div>
+        <a href="/all-books.html" class="font-medium color-primary mb-4">Explore</a>
+        <a href="#" class="font-medium color-primary mb-4">History</a>
+        <a href="#" class="font-medium color-primary mb-4" data-bs-toggle="modal" data-bs-target="#modalAddBook">Add Book</a>
+    </div>
+    <div id="wrapper">
+        <header>
+            <nav class="navbar navbar-expand-lg bg-white shadow">
+                <div class="container-fluid px-4">
+                    <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
+                        <ul class="navbar-nav mb-2 mb-lg-0">
+                            <li class="nav-item my-auto" onclick="toggledNavigation()">
+                                <i data-feather="menu"></i>
+                            </li>
+                            <li class="nav-item dropdown ms-3">
+                                <a class="nav-link dropdown-toggle font-medium color-primary" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    All Categories
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle font-medium color-primary" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    All Time
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <a href="/dashboard.html" class="navbar-brand d-flex align-items-center justify-content-center me-0">
+                            <img src="./assets/img/logo.png" width="40px" alt="Logo">
+                            <div class="fs-4 font-medium ms-2">Library</div>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <!-- Modal add book -->
+            <div class="modal fade" id="modalAddBook" tabindex="-1" aria-labelledby="modalAddBook" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content p-4">
+                        <div class="modal-header border-0">
+                            <h1 class="modal-title font-medium fs-4" id="modalAddBook">Add data</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row mb-3">
+                                <div class="col-md-2 col-lg-2 col-form-label font-medium">
+                                    Url image
+                                </div>
+                                <div class="col-md-10 col-lg-10">
+                                    <input type="text" name="url" id="url" class="form-control py-2" placeholder="Url image ...">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-2 col-lg-2 col-form-label font-medium">
+                                    Title
+                                </div>
+                                <div class="col-md-10 col-lg-10">
+                                    <input type="text" name="title" id="title" class="form-control py-2" placeholder="Title ...">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-2 col-lg-2 col-form-label font-medium">
+                                    Description
+                                </div>
+                                <div class="col-md-10 col-lg-10">
+                                    <textarea class="form-control" name="description" id="description" rows="6" placeholder="Description ..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer border-0">
+                            <button type="button" class="btn background-warning text-white py-2 px-4">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid px-4">
+                <section class="d-flex justify-content-center mt-5">
+                    <div class="search shadow rounded-pill" role="search">
+                        <input class="form-control rounded-pill py-3" type="search" placeholder="Search book ..." aria-label="Search">
+                    </div>
+                </section>
+                <section id="list-book">
+                    <div class="">
+                        <div class="d-flex align-items-center justify-content-between pt-5 pb-3">
+                            <h5 class="font-medium">List Book</h5>
+                            <button class="btn background-warning text-white py-2 px-3" data-bs-toggle="modal" data-bs-target="#modalAddBook">Add Book</button>
+                        </div>
+                        <div id="cardWrapper" class="d-flex flex-wrap list-all-books"></div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.pkgd.js"></script>
+    <script>
+        feather.replace()
+    </script>
+    <script src="./js/main.js"></script>
+    <script src="./js/card.js"></script>
+</body>
+
+</html>
